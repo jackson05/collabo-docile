@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+	<f:view>
+		<h:head>
+			<style>
+				@import url("../fontawesome-5.14.0/css/all.css");
+				@import url("../css/materialize.min.css");
+				@import url("../iconfont/material-icons.css")
+				
+			</style>
+		</h:head> 
+			
+		<h:body>
+		   
+		    	
+<!-- <nav>  navbar content here  </nav>--> 
+		<ui:include src="sidenav.xhtml" />
+		<div class="container" style="margin-left: 22%">
+		<p:growl showDetail="true" >
+			<p:autoUpdate/>
+		</p:growl>
+			<div class="container">
+				<h:form>
+					<div class="row">
+						<div class="input-field col s12 m6">
+					        <h:outputLabel for="categor" value="Catégorie de l'adherent"/>
+					        <h:inputText id="nom" value="#{user.nom}" required="true" requiredMessage="le nom est obligatoire"  />
+				        </div>
+				        
+				        <div class="input-field col s12 m6">
+					        <h:outputLabel for="categor" value="Catégorie de l'adherent"/>
+					        <h:inputText id="prenom" value="#{user.prenom}" required="true" requiredMessage="le prenom est obligatoire" />
+				        </div>
+				        
+				        <div class="input-field col s12 m6">
+					        <h:outputLabel for="categor" value="Catégorie de l'adherent"/>
+					        <p:inputNumber id="tel" value="#{user.tel}" required="true" requiredMessage="Le numéro de téléphone est obligatoire"/>
+				        </div>
+				        
+				        <div class="input-field col s12 m6">
+					       <h:selectOneMenu  value="#{user.type}" requiredMessage="Selectionner le type d'utilisateur">
+								<f:selectItem itemLabel="--- selectionner le type d'utilisateur ---" noSelectionOption="true"/>
+								<f:selectItem itemLabel="responsable communal" itemValue="responsable communal"/>
+								<f:selectItem itemLabel="responsable provinciale" itemValue="responsable provinciale"/>
+								<f:selectItem itemLabel="responsable national" itemValue="responsable national"/>
+								
+						</h:selectOneMenu>	
+				        </div>
+						<div class="input-field col s12 m6 row">
+							<h:outputLabel for="categor" value="Catégorie de l'adherent"/>
+							<h:inputSecret id="pass1" value="#{user.password}" required="true" requiredMessage="le mot de passe incorrect"/>
+							
+						</div>
+						
+						<div class="input-field col s12 m6 row">
+							<h:inputSecret id="pass2" value="#{user.secondPass}" required="true" requiredMessage="le mot de passe incorrect"/>
+						</div>
+					</div>
+					
+					<div class="row col s12 m12">
+						<h:commandButton action="#{user.createUser()}" value="Enregister" styleClass="btn col s12 m12"/>
+					</div>
+				</h:form>
+			</div>
+		</div>
+  
+  	<a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        
+		    
+		    <script src="../js/materialize.min.js"></script>
+		    <script>
+		        M.AutoInit();
+		        document.addEventListener("DOMContentLoaded",function(){
+		            const myTabs=document.querySelector('.tabs');
+		            M.Tabs.init(myTabs,{
+		                swipeable:true,
+		                duration:300
+		            });
+		        })
+		        
+		    </script>
+		</h:body>
+		 
+	</f:view>
+</html>
