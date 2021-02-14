@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+	<h:head></h:head> 
+	<h:body>
+		 <h:form>
+			<div class="row ">
+				<div class="input-field col s12 m6">
+			        <h:outputLabel for="nom" value="Nom*"/>
+			        <h:inputText id="nom" value="#{user.nom}" styleClass="center-align" required="true" requiredMessage="le nom est obligatoire"  />
+				    </div>
+				    
+				    <div class="input-field col s12 m6">
+			        <h:outputLabel for="prenom" value="Prénom*"/>
+			        <h:inputText id="prenom" value="#{user.prenom}" styleClass="center-align" required="true" requiredMessage="le prenom est obligatoire" />
+				    </div>
+				    
+				    <div class="input-field col s12 m6 ">
+				        <h:outputLabel for="tel" value="N de Tél"/>
+				        <h:inputText id="tel" type="tel" value="#{user.tel}" styleClass="center-align"    required="true" requiredMessage="Le numéro de téléphone est obligatoire"/>
+				    </div>
+				    
+				    <div class="input-field col s12 m6">
+			       <h:selectOneMenu  value="#{user.type}" requiredMessage="Selectionner le type d'utilisateur">
+						<f:selectItem itemLabel="--- selectionner le type d'utilisateur ---" noSelectionOption="true"/>
+						<f:selectItem itemLabel="responsable communal" itemValue="responsable communal"/>
+						<f:selectItem itemLabel="responsable provinciale" itemValue="responsable provinciale"/>
+						<f:selectItem itemLabel="responsable national" itemValue="responsable national"/>
+						
+				</h:selectOneMenu>	
+				    </div>
+				<div class="input-field col s12 m6 row">
+					<h:outputLabel for="pass1" value="Mot de passe* "/>
+					<h:inputSecret id="pass1" value="#{user.password}" styleClass="center-align" required="true" requiredMessage="le mot de passe incorrect"/>
+					
+				</div>
+				
+				<div class="input-field col s12 m6 row center-align">
+					<h:outputLabel for="pass2" value="Retapez le mot de passe "/>
+					<h:inputSecret id="pass2" value="#{user.secondPass}" styleClass="center-align" required="true" requiredMessage="le mot de passe incorrect"/>
+				</div>
+			</div>
+			
+			<div class="row col s12 m12">
+				<h:commandButton action="#{user.createUser()}" value="Enregister l'utilisateur" styleClass="btn col s12 m12"/>
+			</div>
+		</h:form>
+	</h:body> 
+</html>
