@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head></h:head> 
+<h:body>
+	<h:form>
+		<div class="row ">
+			<div class="input-field col s12 m6">
+				<h:outputLabel for="nomFourni" value="Le nom du fournisseur*"/>
+				<h:inputText id="nomFourni" value="#{fournisseur.nomFourn}" required="true" requiredMessage="le nom est obligatoire"  />
+			</div>
+			    
+			<div class="input-field col s12 m6">
+			    <h:outputLabel for="ville" value="Ville"/>
+			    <h:inputText id="ville" value="#{fournisseur.villeFourn}" required="true" requiredMessage="le ville est obligatoire" />
+			</div>
+			    
+			<div class="input-field col s12 m6">
+			    <h:outputLabel for="tel" value="Tel*"/>
+			    <p:inputNumber id="tel" value="#{fournisseur.telFourn}" minValue="0" maxlength="8" required="true" requiredMessage="Le numéro de téléphone est obligatoire"/>
+			</div>
+			    
+			
+			
+			<div class="input-field col s12 m6 row">
+				<h:outputLabel for="mail" value="E-Mail*"/>
+				<h:inputText id="mail"  value="#{fournisseur.mailFourn}"  required="true" requiredMessage="le mot de passe incorrect"/>
+			</div>
+		</div>
+			
+		<div class="row col s12 m12">
+			<h:commandButton action="#{fournisseur.saveFournisseur()}" value="Enregister l'utilisateur" styleClass="btn col s12 m12"/>
+		</div>
+	</h:form>
+  
+</h:body> 
+</html>
