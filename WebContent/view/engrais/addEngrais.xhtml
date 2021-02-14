@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head></h:head> 
+<h:body>
+	<h:form>
+		<div class="row ">
+			<div class="input-field col s12 m6">
+			       <h:outputLabel for="nom" value="Nom d'engrais*"/>
+			       <h:inputText id="nom" value="#{engrais.nomEngrais}" styleClass="center-align" required="true" requiredMessage="le nom d'engrais est obligatoire"  />
+			 </div>
+			    
+			 <div class="input-field col s12 m6">
+			     <h:outputLabel for="type" value="Type d'engrais*"/>
+			     <h:inputText id="type" value="#{engrais.typeEngrais}" styleClass="center-align" required="true" requiredMessage="le type d'engrais est obligatoire" />
+			 </div>
+			    
+			 <div class="input-field col s12 m6">
+			     <h:outputLabel for="tel" value="Prix unitaire"/>
+			     <p:inputNumber id="tel" value="#{engrais.prixUnitaire}" styleClass="center-align" maxlength="8" minValue="0" required="true" requiredMessage="Le prix est obligatoire"/>
+			 </div>
+			   
+			 <div class="input-field col s12 m6">
+			      <h:selectOneMenu  value="#{user.type}" requiredMessage="Selectionner le fournisseur">
+					<f:selectItem itemLabel="--- selectionner le fornisseur ---" noSelectionOption="true"/>
+					<f:selectItem itemLabel="#{fournisseur.nomFourn}" itemValue="#{fournisseur.idFourn}"/>
+				
+				</h:selectOneMenu>	
+			</div>
+				
+			
+		</div>
+			
+		<div class="row col s12 m12">
+			<h:commandButton action="#{user.createUser()}" value="Enregister l'utilisateur" styleClass="btn col s12 m12"/>
+		</div>
+	</h:form>
+    
+</h:body> 
+</html>
